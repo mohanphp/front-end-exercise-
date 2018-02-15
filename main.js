@@ -4,16 +4,19 @@ $(document).ready(function() {
 
 		if (e.shiftKey) {
 
+			$('.item').removeClass('shift-key');
+			$(this).parent().addClass('shift-key');
 			var count = 0;
 
             $('.item').each(function() {
             	
-            	if ($(this).hasClass('shift-key') && count >= 0) {
+            	if (!($(this).hasClass('shift-key'))) {
             		$(this).removeClass('shift-key');
             		$(this).addClass('checked');
-            		count += 1;
-            	} else if (count == 1) {
-            		$(this).addClass('checked');
+				}
+				else{
+					$(this).addClass('checked');
+					return false;
             	}
             })
 
